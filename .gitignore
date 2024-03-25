@@ -21,7 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-/public/external
 courses_spring24.csv
 courses_spring24_indents.json
 /temp
