@@ -1,0 +1,12 @@
+.button {
+    background-image: radial-gradient(circle at 60.8% 59.68%, #6F0E04 0%, #D51B08 100%);
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    font-style: Bold;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
