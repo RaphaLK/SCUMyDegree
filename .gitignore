@@ -24,3 +24,5 @@ yarn-error.log*
 courses_spring24.csv
 courses_spring24_indents.json
 /temp
+subjects_spring24_indents.json
+majors_spring24_indents.json
