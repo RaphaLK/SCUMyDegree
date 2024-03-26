@@ -1,9 +1,13 @@
 import styles from './Home.module.css';
-import MDButton from './MDButton';
+import MDButton from '../Components/MDButton';
+import { Helmet } from 'react-helmet';
 
 function Home() {
     return (
         <div className={styles.home}>
+            <Helmet>
+                <title>SCUMyDegree</title>
+            </Helmet>
             <img src="/external/primary3225-xh5m.svg" className={styles['images']} alt="SCUMyDegree Logo" />
             <div className={styles.title}>
                 <span className={styles['red-text']}>SCU</span>
