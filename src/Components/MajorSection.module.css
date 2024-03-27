@@ -3,7 +3,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 0px 20px;
 }
 
 .major-title {
@@ -20,7 +21,9 @@
 
 .major-boxes {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    /* grid-template-rows: repeat(auto-fill, minmax(300px, 1fr)); */
-    gap: 1rem;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns of equal width */
+    grid-auto-rows: minmax(200px, 1fr); /* rows of at least 200px height and equal height */
+    gap: 100px; /* space between columns and rows */
+    justify-items: stretch; /* default */
+    align-items: stretch; /* default */
 }
