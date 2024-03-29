@@ -1,6 +1,25 @@
 import styles from './Home.module.css';
 import MDButton from '../Components/MDButton';
 import { Helmet } from 'react-helmet';
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { auth } from '../firebase';
+
+const googleLogin = async () => {
+    const provider = new GoogleAuthProvider();
+
+    try {
+        const result = await signInWithPopup(auth, provider);
+        const email = result.user.email;
+    
+        if (email.endsWith('@scu.edu')) {
+            window.location.href = '/majors';
+        } else {
+            alert('Please use your SCU email to login.');
+        }
+    } catch (error) {
+        console.error(error);
+    }
+}
 
 function Home() {
     return (
@@ -18,7 +37,7 @@ function Home() {
             </p>
             <div className={styles['button-container']}>
                 <MDButton text="Create Account" />
-                <MDButton text="Login" />
+                <MDButton buttonFunc={googleLogin} text="Login" />
             </div>
         </div>
     );

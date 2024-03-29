@@ -1,8 +1,8 @@
 import styles from './MDButton.module.css';
 
-function MDButton(props) {
+function MDButton({buttonFunc, text}) {
     return (
-        <button className={styles['button']}>{props.text}</button>
+        <button className={styles['button']} onClick={buttonFunc}>{text}</button>
     );
 }
 
