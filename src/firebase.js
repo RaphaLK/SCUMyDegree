@@ -5,17 +5,20 @@ import { getAuth } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
+/*
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-    appId: process.env.REACT_APP_FIREBASE_APP_ID,
-    measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
-};
+let firebaseConfig = null;
+
+fetch('/getFirebaseConfig')
+    .then(response => response.json())
+    .then(config => {
+        firebaseConfig = config;
+        console.log('config:', config);
+    })
+    .catch(error => {
+        console.error(error);
+    });
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -23,3 +26,25 @@ const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth(app);
 export default app;
+*/
+
+let firebaseConfig = null;
+
+// Function to initialize Firebase
+export const initializeFirebase = () => {
+    if (!firebaseConfig) {
+        return Promise.reject(new Error("Firebase configuration not fetched"));
+    }
+
+    return initializeApp(firebaseConfig);
+}
+
+// Function to get Firebase authentication instance
+export const getFirebaseAuth = () => {
+    if (!firebaseConfig) {
+        return Promise.reject(new Error("Firebase configuration not fetched"));
+    }
+
+    const app = initializeApp(firebaseConfig);
+    return getAuth(app);
+}

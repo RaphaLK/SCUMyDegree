@@ -2,10 +2,14 @@ import styles from './Home.module.css';
 import MDButton from '../Components/MDButton';
 import { Helmet } from 'react-helmet';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import { auth } from '../firebase';
+import { useEffect } from 'react';
+// import { auth } from '../firebase';
+import { initializeFirebase, getFirebaseAuth } from '../firebase';
 
 const googleLogin = async () => {
     const provider = new GoogleAuthProvider();
+
+    const auth = getFirebaseAuth();
 
     try {
         const result = await signInWithPopup(auth, provider);
@@ -22,6 +26,17 @@ const googleLogin = async () => {
 }
 
 function Home() {
+    useEffect(() => {
+        fetch('/getFirebaseConfig')
+            .then(response => response.json())
+            .then(config => {
+                initializeFirebase(config);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }, []);
+
     return (
         <div className={styles.home}>
             <Helmet>
