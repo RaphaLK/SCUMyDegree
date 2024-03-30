@@ -71,5 +71,6 @@ exports.getFirebaseConfig = functions.https.onRequest((req, res) => {
     measurementId: "G-QKBB5PZ73W",
   };
 
+  res.setHeader("Content-Type", "application/json");
   res.status(200).json(firebaseConfig);
 });
