@@ -9,8 +9,8 @@ function MajorSection({ section }) {
             </div>
             <hr className={styles['section-line']} />
             <div className={styles['major-boxes']}>
-                {section.majors.map((section, index) => {
-                    return <MajorBox key={index} major={section} />;
+                {section.majors.map((major, index) => {
+                    return <MajorBox key={index} major={major} school={section.school} />;
                 })}
             </div>
         </div>
