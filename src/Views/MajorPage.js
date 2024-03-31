@@ -2,9 +2,11 @@ import styles from './MajorPage.module.css';
 import MajorSection from '../Components/MajorSection';
 import majorSections from '../Constants/majors';
 import { Helmet } from 'react-helmet';
-// import { auth } from '../firebase';
+import { auth } from '../firebase';
 
 function MajorPage() {
+    console.log(auth.currentUser);
+
     return (
         <div className={styles['major-page']}>
             <Helmet>
