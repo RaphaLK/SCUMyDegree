@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../Contexts/AuthContext';
 
 function NavBar() {
-    const { currentUser, login, logout } = useAuth();
+    const { currentUser, login, logout /*, signUp */ } = useAuth();
 
     return (
         <nav className={styles.navbar}>
@@ -28,18 +28,19 @@ function NavBar() {
                             title={currentUser ? `${currentUser.displayName}'s Account` : 'My Account'} 
                         />
                     </button>
-                    {/*
-                    <div className={styles['dropdown-content']}>
+                    {/* <div className={styles['dropdown-content']}>
                         {currentUser ? 
                             <div>
                                 <p>{currentUser.displayName}</p>
-                                <button onClick={handleLogout}>Log Out</button>
+                                <button onClick={logout}>Log Out</button>
                             </div>
                             :
-                            <Link to="/login">Log In</Link>
+                            <div>
+                                <button onClick={login}>Log In</button>
+                                <button onClick={signUp}>Sign Up</button>
+                            </div>
                         }
-                    </div>
-                    */}
+                    </div> */}
                 </div>
             </div>
         </nav>

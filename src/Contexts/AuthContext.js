@@ -70,17 +70,19 @@ export function AuthProvider( { children }) {
                 }
             } else {
                 alert('Please use your SCU email to login.');
-                await logout();
+                await logout(false);
             }
         } catch (error) {
             console.error(error);
         }
     }
 
-    const logout = async () => {
+    const logout = async (notify = true) => {
         try {
             await auth.signOut();
-            alert('Logged out successfully');
+            if (notify) {
+                alert('Logged out successfully');
+            }
             navigate('/');
         } catch (error) {
             console.error(error);
