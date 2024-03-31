@@ -1,7 +1,7 @@
 import styles from "./MajorSection.module.css";
 import MajorBox from "./MajorBox";
 
-function MajorSection({ key, section }) {
+function MajorSection({ section }) {
     return (
         <div className={styles['major-section']}>
             <div className={styles['major-title']}>
