@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 import { useAuth } from '../Contexts/AuthContext';
 
 function Home() {
-    const { login } = useAuth();
+    const { login, signUp } = useAuth();
 
     return (
         <div className={styles.home}>
@@ -20,7 +20,7 @@ function Home() {
                 An easy way to view your degree audit.
             </p>
             <div className={styles['button-container']}>
-                <MDButton text="Create Account" />
+                <MDButton buttonFunc={signUp} text="Create Account" />
                 <MDButton buttonFunc={login} text="Login" />
             </div>
         </div>
