@@ -1,15 +1,41 @@
 .major-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 50px;
+    margin-top: 55px;
 }
 
-/* .major-sections {
+.container {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
-    margin-top: 50px;
-} */
+    height: calc(100vh - 55px); /* 55px is the height of the navbar */
+}
+
+.left-half {
+    display: flex;
+    flex-direction: column;
+    flex: 0.7;
+    overflow: hidden;
+    justify-content: center;
+}
+
+.right-half {
+    flex: 1.3;
+    overflow-y: auto;
+}
+
+.left-half h1 {
+    font-size: 96px;
+}
+
+.left-half .text1 {
+    font-size: calc(10vw / .625 / 9);
+}
+
+.left-half .text2 {
+    font-size: calc(8vw / .625 / 9);
+}
+
+.major-sections {
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+}

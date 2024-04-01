@@ -28,15 +28,26 @@ function MajorPage() {
 
     getCurrentInfo();
 
+    const firstName = currentUser.displayName.split(' ')[0];
+
     return (
         <div className={styles['major-page']}>
             <Helmet>
                 <title>Majors - SCUMyDegree</title>
             </Helmet>
-            <div className={styles['major-sections']}>
-                {majorSections.map((major, index) => {
-                    return <MajorSection key={index} section={major} selectedMajor={selectedMajor} setSelectedMajor={setSelectedMajor} selectedSchool={selectedSchool} setSelectedSchool={setSelectedSchool} />
-                })}
+            <div className={styles['container']}>
+                <div className={styles['left-half']}>
+                    <h1>Major</h1>
+                    <p className={styles['text1']}>Hi, {firstName}! What are you studying?</p>
+                    <p className={styles['text2']}>Note: You can always change this later in Settings.</p>
+                </div>
+                <div className={styles['right-half']}>
+                    <div className={styles['major-sections']}>
+                        {majorSections.map((major, index) => {
+                            return <MajorSection key={index} section={major} selectedMajor={selectedMajor} setSelectedMajor={setSelectedMajor} selectedSchool={selectedSchool} setSelectedSchool={setSelectedSchool} />
+                        })}
+                    </div>
+                </div>
             </div>
         </div>
     );

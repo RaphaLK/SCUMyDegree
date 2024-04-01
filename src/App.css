@@ -18,6 +18,6 @@
 }
 
 .content {
-    margin-top: 150px;
+    margin-top: 55px; /* 55px is the height of the navbar */
     font-family: Inter;
 }

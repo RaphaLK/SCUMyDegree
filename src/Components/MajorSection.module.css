@@ -21,7 +21,7 @@
 
 .major-boxes {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns of equal width */
+    grid-template-columns: repeat(3, 1fr); /* 3 columns of equal width */
     grid-auto-rows: minmax(200px, 1fr); /* rows of at least 200px height and equal height */
     gap: 100px; /* space between columns and rows */
     justify-items: stretch; /* default */
