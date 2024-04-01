@@ -3,24 +3,24 @@ import { useAuth } from '../Contexts/AuthContext';
 import { db } from '../firebase';
 import { doc, setDoc } from 'firebase/firestore';
 
-function MajorBox({ major, school }) {
+function MajorBox({ major, school, selectedMajor, setSelectedMajor, selectedSchool, setSelectedSchool }) {
     const { currentUser } = useAuth();
 
-    const handleMajorClick = (e) => {
-        // TO DO: use e.target to highlight the box
-        // OR use a state variable to highlight the box (preferred, the React way)
-        
+    const handleMajorClick = () => {
         if (currentUser) {
             setDoc(doc(db, 'users', currentUser.uid), {
                 major: major.name,
                 school: school
             }, { merge: true });
         }
+
+        setSelectedMajor(major.name);
+        setSelectedSchool(school);
     }
 
     return (
         <div 
-            className={styles['major-box']}
+            className={`${styles['major-box']} ${selectedMajor === major.name && selectedSchool === school ? styles['selected'] : ''}`}
             onClick={handleMajorClick}
         >
             <div className={styles['major-box-title']}>
