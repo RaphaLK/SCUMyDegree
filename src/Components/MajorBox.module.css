@@ -20,5 +20,6 @@
 }
 
 .major-box.selected {
-    background: #FFD700;
+    background: #A4161A;
+    color: white;
 }
