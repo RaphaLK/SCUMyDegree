@@ -7,7 +7,6 @@ import { useAuth } from '../Contexts/AuthContext';
 import { db } from '../firebase';
 import { doc, getDoc } from 'firebase/firestore';
 
-
 function MajorPage() {
     const { currentUser } = useAuth();
 
