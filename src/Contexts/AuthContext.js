@@ -32,7 +32,16 @@ export function AuthProvider( { children }) {
             const result = await signInWithPopup(auth, provider);
 
             if (result.user.email.endsWith('@scu.edu')) {
-                await setDoc(doc(db, 'users', result.user.uid), {
+                const docRef = doc(db, 'users', result.user.uid);
+                const docSnap = await getDoc(docRef);
+
+                if (docSnap.exists()) { // If the user already has an account
+                    alert('Account already exists.');
+                    navigate('/');
+                    return;
+                }
+
+                await setDoc(docRef, {
                     name: result.user.displayName,
                     uid: result.user.uid,
                     email: result.user.email,
