@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './MajorPage.module.css';
 import MajorSection from '../Components/MajorSection';
 import majorSections from '../Constants/majors';
@@ -13,6 +13,10 @@ function MajorPage() {
     const [selectedMajor, setSelectedMajor] = useState(null);
     const [selectedSchool, setSelectedSchool] = useState(null);
 
+    useEffect(() => {    
+        getCurrentInfo();
+    }, [])
+
     const getCurrentInfo = async () => {
         if (currentUser) {
             const docRef = doc(db, 'users', currentUser.uid);
@@ -22,10 +26,11 @@ function MajorPage() {
                 setSelectedMajor(docSnap.data().major);
                 setSelectedSchool(docSnap.data().school);
             }
+        
         }
     }
 
-    getCurrentInfo();
+
 
     const firstName = currentUser.displayName.split(' ')[0];
 
