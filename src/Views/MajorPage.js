@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
 import styles from './MajorPage.module.css';
 import MajorSection from '../Components/MajorSection';
@@ -13,10 +14,6 @@ function MajorPage() {
     const [selectedMajor, setSelectedMajor] = useState(null);
     const [selectedSchool, setSelectedSchool] = useState(null);
 
-    useEffect(() => {    
-        getCurrentInfo();
-    }, [])
-
     const getCurrentInfo = async () => {
         if (currentUser) {
             const docRef = doc(db, 'users', currentUser.uid);
@@ -30,6 +27,9 @@ function MajorPage() {
         }
     }
 
+    useEffect (() => {
+        getCurrentInfo();
+    }, [])
 
 
     const firstName = currentUser.displayName.split(' ')[0];
