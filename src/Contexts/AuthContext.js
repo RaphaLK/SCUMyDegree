@@ -52,8 +52,8 @@ export function AuthProvider( { children }) {
     
                 navigate('/majors');
             } else {
+                await logout(false);
                 alert('Please use your SCU email to login.');
-                await logout();
             }
         } catch (error) {
             console.error(error);
@@ -75,11 +75,12 @@ export function AuthProvider( { children }) {
                 if (docSnap.exists()) {
                     navigate('/majors');
                 } else {
+                    await logout(false);
                     alert('Please create an account first.');
                 }
             } else {
-                alert('Please use your SCU email to login.');
                 await logout(false);
+                alert('Please use your SCU email to login.');
             }
         } catch (error) {
             console.error(error);
