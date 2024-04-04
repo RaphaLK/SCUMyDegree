@@ -1,0 +1,9 @@
+.DropDownMenu_ViewContainer {
+  position: absolute;
+  margin-top: 1em;
+  background-color: #A4161A;
+  overflow-y: visible;
+  width: 15vw;
+  right: -.75em;
+  border-radius: 10px;
+}

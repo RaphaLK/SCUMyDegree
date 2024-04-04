@@ -1,0 +1,12 @@
+.ItemView {
+  display: flex;
+  flex-direction: row;
+}
+
+.imageView {
+}
+
+.description {
+  font-size: 16px;
+  color: white;
+}
