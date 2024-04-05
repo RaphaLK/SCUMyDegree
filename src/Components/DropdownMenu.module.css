@@ -1,0 +1,18 @@
+.dropdown-menu-view-container {
+    position: absolute;
+    margin-top: 1em;
+    color: white;
+    background-color: #A4161A;
+    overflow-y: visible;
+    width: 15vw;
+    right: -.75em;
+    border-radius: 10px;
+}
+
+.dropdown-menu-view-container ul {
+    cursor: pointer;
+}
+
+.dropdown-menu-view-container ul:hover {
+    background-color: #510003;
+}
