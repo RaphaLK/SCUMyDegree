@@ -1,13 +1,12 @@
-import styles from './DropDownItem.module.css'
+import styles from './DropdownItem.module.css'
 
-const DropDownItem = ({ image, desc }) => {
-  
-  return (
-    <div className={styles['ItemView']}>
-      <img className={styles['imageView']} src={image} alt=''/>
-      <p className={styles['description']} >{desc}</p>
-    </div>
-  );
+function DropdownItem({ image, desc, action }) {
+    return (
+        <div className={styles['item-view']} title={desc} onClick={action}>
+            <img className={styles['image-view']} src={image} alt={desc}/>
+            <h3 className={styles['description']} >{desc}</h3>
+        </div>
+    );
 };
 
-export default DropDownItem
+export default DropdownItem
