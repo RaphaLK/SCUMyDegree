@@ -2,8 +2,8 @@ import styles from './DropdownMenu.module.css';
 import DropdownItem from './DropdownItem';
 import { useAuth } from '../Contexts/AuthContext';
 
-function DropdownMenu() {
-    const { currentUser, login, logout , signUp } = useAuth();
+function DropdownMenu({ setDropdown }) {
+    const { currentUser, login, logout, signUp } = useAuth();
 
     console.log(currentUser);
     
@@ -20,21 +20,30 @@ function DropdownMenu() {
                     <DropdownItem
                         image='/external/primaryi322-c8z6.svg' 
                         desc='Log Out'
-                        action={logout}
+                        action={() => {
+                            logout();
+                            setDropdown(false);
+                        }}
                     />
                 </ul>}
                 {!currentUser && <ul>
                     <DropdownItem
                         image='/external/primaryi322-c8z6.svg' 
                         desc='Log In'
-                        action={login}
+                        action={() => {
+                            login();
+                            setDropdown(false);
+                        }}
                     />
                 </ul>}
                 {!currentUser && <ul>
                     <DropdownItem
                         image='/external/primaryi322-c8z6.svg' 
                         desc='Sign Up'
-                        action={signUp}
+                        action={() => {
+                            signUp();
+                            setDropdown(false);
+                        }}
                     />
                 </ul>}
         </div>

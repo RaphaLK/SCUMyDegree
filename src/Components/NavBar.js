@@ -36,7 +36,7 @@ function NavBar() {
                         />
                     </button>
                     {dropdown && (
-                        <DropdownMenu/>
+                        <DropdownMenu setDropdown={setDropdown} />
                     )}
                 </div>
             </div>
