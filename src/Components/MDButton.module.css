@@ -3,10 +3,20 @@
     color: white;
     font-size: 24px;
     font-weight: 700;
-    font-style: Bold;
+    font-style: bold;
     padding: 10px 20px;
     border-radius: 10px;
     border: none;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.button:hover {
+    background-image: radial-gradient(circle at 60.8% 59.68%, #D51B08 0%, #6F0E04 100%);
+    transform: scale(1.05); /* Slighly increase the size of the button */
+}
+
+.button:active { /* When the button is clicked */
+    transform: scale(0.95); /* Slightly decrease the size of the button */
+    transition: transform 0.1s;
 }
