@@ -1,3 +1,7 @@
+@media screen and (orientation:protrait){
+    .home {
+    }
+}
 .home {
     display: flex;
     flex-direction: column;
