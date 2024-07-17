@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
 import styles from './MajorPage.module.css';
 import MajorSection from '../Components/MajorSection';
@@ -13,24 +12,22 @@ function MajorPage() {
 
     const [selectedMajor, setSelectedMajor] = useState(null);
     const [selectedSchool, setSelectedSchool] = useState(null);
-
-    const getCurrentInfo = async () => {
-        if (currentUser) {
-            const docRef = doc(db, 'users', currentUser.uid);
-            const docSnap = await getDoc(docRef);
-
-            if (docSnap.exists()) {
-                setSelectedMajor(docSnap.data().major);
-                setSelectedSchool(docSnap.data().school);
-            }
-        
-        }
-    }
-
+    
     useEffect (() => {
-        getCurrentInfo();
-    }, [])
+        const getCurrentInfo = async () => {
+            if (currentUser) {
+                const docRef = doc(db, 'users', currentUser.uid);
+                const docSnap = await getDoc(docRef);
+    
+                if (docSnap.exists()) {
+                    setSelectedMajor(docSnap.data().major);
+                    setSelectedSchool(docSnap.data().school);
+                }
+            }
+        }
 
+        getCurrentInfo();
+    }, [currentUser]);
 
     const firstName = currentUser.displayName.split(' ')[0];
 
