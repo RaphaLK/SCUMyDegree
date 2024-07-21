@@ -21,7 +21,7 @@ function App() {
                                 <PrivateRoute>
                                     <MajorPage />
                                 </PrivateRoute>
-                        }
+                            }
                         />
                         <Route path="*" element={<NotFound />} />
                     </Routes>
