@@ -11,8 +11,8 @@ export function useAuth() {
 }
 
 export function AuthProvider( { children }) {
-    const [currentUser, setCurrentUser] = useState();
-    const [loading, setLoading] = useState(true);
+    const [currentUser, setCurrentUser] = useState(null);
+    const [loading, setLoading] = useState(true); // loading is true until the user is authenticated
 
     const navigate = useNavigate();
 
@@ -29,9 +29,9 @@ export function AuthProvider( { children }) {
         const provider = new GoogleAuthProvider();
 
         try {
-            const result = await signInWithPopup(auth, provider);
+            const result = await signInWithPopup(auth, provider); // Sign in with Google
 
-            if (result.user.email.endsWith('@scu.edu')) {
+            if (result.user.email.endsWith('@scu.edu')) { // If the user has an SCU email
                 const docRef = doc(db, 'users', result.user.uid);
                 const docSnap = await getDoc(docRef);
 
@@ -41,7 +41,7 @@ export function AuthProvider( { children }) {
                     return;
                 }
 
-                await setDoc(docRef, {
+                await setDoc(docRef, { // Create a new account in the database
                     name: result.user.displayName,
                     uid: result.user.uid,
                     email: result.user.email,
@@ -50,8 +50,8 @@ export function AuthProvider( { children }) {
                     minor: null
                 });
     
-                navigate('/majors');
-            } else {
+                navigate('/majors'); // Redirect to the majors page
+            } else { // If the user does not have an SCU email
                 await logout(false);
                 alert('Please use your SCU email to login.');
             }
@@ -64,21 +64,21 @@ export function AuthProvider( { children }) {
         const provider = new GoogleAuthProvider();
 
         try {
-            const result = await signInWithPopup(auth, provider);
+            const result = await signInWithPopup(auth, provider); // Sign in with Google
             const email = result.user.email;
             const uid = result.user.uid;
 
-            if (email.endsWith('@scu.edu')) {
+            if (email.endsWith('@scu.edu')) { // If the user has an SCU email
                 const docRef = doc(db, 'users', uid);
                 const docSnap = await getDoc(docRef);
 
-                if (docSnap.exists()) {
-                    navigate('/majors');
-                } else {
+                if (docSnap.exists()) { // If the user has an account
+                    navigate('/');
+                } else { // If the user does not have an account
                     await logout(false);
                     alert('Please create an account first.');
                 }
-            } else {
+            } else { // If the user does not have an SCU email
                 await logout(false);
                 alert('Please use your SCU email to login.');
             }
@@ -90,10 +90,13 @@ export function AuthProvider( { children }) {
     const logout = async (notify = true) => {
         try {
             await auth.signOut();
-            if (notify) {
+            setCurrentUser(null);
+
+            if (notify) { // if the user should be notified
                 alert('Logged out successfully');
             }
-            navigate('/');
+
+            navigate('/'); // Redirect to the home page
         } catch (error) {
             console.error(error);
         }
