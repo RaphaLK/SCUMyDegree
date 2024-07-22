@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './Views/Home';
 import NavBar from './Components/NavBar';
 import MajorPage from './Views/MajorPage';
+import MinorPage from './Views/MinorPage';
 import NotFound from './Views/NotFound';
 import PrivateRoute from './Components/PrivateRoute';
 import { AuthProvider } from './Contexts/AuthContext';
@@ -20,6 +21,14 @@ function App() {
                             element={
                                 <PrivateRoute>
                                     <MajorPage />
+                                </PrivateRoute>
+                            }
+                        />
+                        <Route 
+                            path="/minors"
+                            element={
+                                <PrivateRoute>
+                                    <MinorPage />
                                 </PrivateRoute>
                             }
                         />

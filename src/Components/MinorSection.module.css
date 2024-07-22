@@ -1,0 +1,29 @@
+.minor-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+    padding: 0px 20px;
+}
+
+.minor-title {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.section-line {
+    width: 80%;
+    height: 1px;
+    background-color: #000;
+    margin-bottom: 20px;
+}
+
+.minor-boxes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns of equal width */
+    grid-auto-rows: minmax(200px, 1fr); /* rows of at least 200px height and equal height */
+    gap: 100px; /* space between columns and rows */
+    justify-items: stretch; /* default */
+    align-items: stretch; /* default */
+}

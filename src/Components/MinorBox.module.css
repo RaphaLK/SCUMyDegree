@@ -1,0 +1,31 @@
+.minor-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #F5F3F4;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.minor-box-title {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.minor-box:hover {
+    background: #D3D3D3;
+}
+
+.minor-box.selected {
+    background: #A4161A;
+    color: white;
+}
+
+.minor-box.disabled {
+    background: #D3D3D3;
+    color: #A4161A;
+    cursor: not-allowed;
+}

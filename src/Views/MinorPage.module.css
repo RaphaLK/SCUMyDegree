@@ -1,0 +1,41 @@
+.minor-page {
+    margin-top: 55px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: calc(100vh - 55px); /* 55px is the height of the navbar */
+}
+
+.left-half {
+    display: flex;
+    flex-direction: column;
+    flex: 0.7;
+    overflow: hidden;
+    justify-content: center;
+}
+
+.right-half {
+    flex: 1.3;
+    overflow-y: auto;
+}
+
+.left-half h1 {
+    font-size: 96px;
+}
+
+.left-half .text1 {
+    font-size: calc(10vw / .625 / 9);
+}
+
+.left-half .text2 {
+    font-size: calc(8vw / .625 / 9);
+}
+
+.minor-sections {
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+}
