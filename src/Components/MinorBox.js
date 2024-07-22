@@ -20,7 +20,10 @@ function MinorBox({ science, minor, majorSchool, selectedMinor, setSelectedMinor
     }
 
     useEffect(() => { // check if the minor should be disabled
-        if (selectedSchool === majorSchool) { // if the minor is in the same school as the major
+        if (selectedSchool === null) { // if the user hasn't selected a major yet
+            setDisabled(true);
+        }
+        else if (selectedSchool === majorSchool) { // if the minor is in the same school as the major
             setDisabled(false);
         } else if (minor.schools.includes(selectedSchool)) { // if user is in list of schools for minor
             setDisabled(false);
