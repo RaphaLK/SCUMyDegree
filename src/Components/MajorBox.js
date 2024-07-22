@@ -6,7 +6,7 @@ import { doc, setDoc } from 'firebase/firestore';
 function MajorBox({ major, school, selectedMajor, setSelectedMajor, selectedSchool, setSelectedSchool }) {
     const { currentUser } = useAuth();
 
-    const handleMajorClick = () => {
+    const handleMajorClick = () => { // set the user's major and school
         if (currentUser) {
             setDoc(doc(db, 'users', currentUser.uid), {
                 major: major.name,

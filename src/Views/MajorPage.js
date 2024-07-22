@@ -10,10 +10,10 @@ import { doc, getDoc } from 'firebase/firestore';
 function MajorPage() {
     const { currentUser } = useAuth();
 
-    const [selectedMajor, setSelectedMajor] = useState(null);
-    const [selectedSchool, setSelectedSchool] = useState(null);
+    const [selectedMajor, setSelectedMajor] = useState(null); // selected major
+    const [selectedSchool, setSelectedSchool] = useState(null); // the school of the user's major
     
-    useEffect (() => {
+    useEffect (() => { // get the user's current major and school
         const getCurrentInfo = async () => {
             if (currentUser) {
                 const docRef = doc(db, 'users', currentUser.uid);
@@ -29,7 +29,7 @@ function MajorPage() {
         getCurrentInfo();
     }, [currentUser]);
 
-    const firstName = currentUser.displayName.split(' ')[0];
+    const firstName = currentUser.displayName.split(' ')[0]; // get the user's first name
 
     return (
         <div className={styles['major-page']}>
@@ -45,7 +45,14 @@ function MajorPage() {
                 <div className={styles['right-half']}>
                     <div className={styles['major-sections']}>
                         {majorSections.map((major, index) => {
-                            return <MajorSection key={index} section={major} selectedMajor={selectedMajor} setSelectedMajor={setSelectedMajor} selectedSchool={selectedSchool} setSelectedSchool={setSelectedSchool} />
+                            return <MajorSection 
+                                key={index} 
+                                section={major} 
+                                selectedMajor={selectedMajor} 
+                                setSelectedMajor={setSelectedMajor} 
+                                selectedSchool={selectedSchool} 
+                                setSelectedSchool={setSelectedSchool} 
+                            />
                         })}
                     </div>
                 </div>

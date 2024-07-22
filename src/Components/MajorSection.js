@@ -10,7 +10,15 @@ function MajorSection({ section, selectedMajor, setSelectedMajor, selectedSchool
             <hr className={styles['section-line']} />
             <div className={styles['major-boxes']}>
                 {section.majors.map((major, index) => {
-                    return <MajorBox key={index} major={major} school={section.school} selectedMajor={selectedMajor} setSelectedMajor={setSelectedMajor} selectedSchool={selectedSchool} setSelectedSchool={setSelectedSchool} />
+                    return <MajorBox 
+                        key={index} 
+                        major={major} 
+                        school={section.school} 
+                        selectedMajor={selectedMajor} 
+                        setSelectedMajor={setSelectedMajor} 
+                        selectedSchool={selectedSchool} 
+                        setSelectedSchool={setSelectedSchool} 
+                    />
                 })}
             </div>
         </div>
