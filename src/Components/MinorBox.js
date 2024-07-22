@@ -12,11 +12,11 @@ function MinorBox({ science, minor, majorSchool, selectedMinor, setSelectedMinor
     const handleMinorClick = () => { // set the user's minor
         if (currentUser) {
             setDoc(doc(db, 'users', currentUser.uid), {
-                minor: minor.name
+                minor:  minor.name === selectedMinor ? null : minor.name // if the minor is already selected, deselect it
             }, { merge: true });
         }
 
-        setSelectedMinor(minor.name);
+        setSelectedMinor(minor.name === selectedMinor ? null : minor.name); // if the minor is already selected, deselect it
     }
 
     useEffect(() => { // check if the minor should be disabled
