@@ -10,7 +10,8 @@ function MajorBox({ major, school, selectedMajor, setSelectedMajor, selectedScho
         if (currentUser) {
             setDoc(doc(db, 'users', currentUser.uid), {
                 major: major.name,
-                school: school
+                school: school,
+                minor: null // deselect the user's minor
             }, { merge: true });
         }
 
