@@ -4,8 +4,6 @@ import { useAuth } from '../Contexts/AuthContext';
 
 function DropdownMenu({ setDropdown }) {
     const { currentUser, login, logout, signUp } = useAuth();
-
-    console.log(currentUser);
     
     return (
         <div className={styles['dropdown-menu-view-container']}>
